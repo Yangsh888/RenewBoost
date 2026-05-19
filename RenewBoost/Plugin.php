@@ -15,7 +15,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) {
 }
 
 /**
- * 【TypeRenew 专用】轻量优化加速插件
+ * 【TypeRenew 专用】优化加速插件
  *
  * @package RenewBoost
  * @author TypeRenew
