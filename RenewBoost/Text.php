@@ -21,17 +21,6 @@ class Text
             return $max <= 0 ? '' : $value;
         }
 
-        if (function_exists('mb_substr')) {
-            return mb_substr($value, 0, $max);
-        }
-
-        if (function_exists('iconv_substr')) {
-            $cut = iconv_substr($value, 0, $max, 'UTF-8');
-            if ($cut !== false) {
-                return $cut;
-            }
-        }
-
-        return substr($value, 0, $max);
+        return mb_substr($value, 0, $max, 'UTF-8');
     }
 }
