@@ -248,19 +248,15 @@ class Image
             return false;
         }
 
-        try {
-            if (in_array($ext, ['png', 'gif'], true)) {
-                if (function_exists('imagepalettetotruecolor')) {
-                    imagepalettetotruecolor($image);
-                }
-                imagealphablending($image, true);
-                imagesavealpha($image, true);
+        if (in_array($ext, ['png', 'gif'], true)) {
+            if (function_exists('imagepalettetotruecolor')) {
+                imagepalettetotruecolor($image);
             }
-
-            return imagewebp($image, $target, $quality);
-        } finally {
-            imagedestroy($image);
+            imagealphablending($image, true);
+            imagesavealpha($image, true);
         }
+
+        return imagewebp($image, $target, $quality);
     }
 
     private static function rewriteHtml(?string $html, string $context): ?string

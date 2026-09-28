@@ -235,7 +235,7 @@ class Avatar
         $parts = Common::parseUrl($url);
         $host = strtolower((string) ($parts['host'] ?? ''));
         if ($host === '' || !Common::checkSafeHost($host)) {
-            throw new \RuntimeException('头像请求目标不安全');
+            throw new \RuntimeException(_t('头像请求目标不安全'));
         }
 
         $client = Client::get($url);
@@ -245,7 +245,7 @@ class Avatar
             ->send();
 
         if ($client->getResponseStatus() !== 200) {
-            throw new \RuntimeException('头像源返回异常状态');
+            throw new \RuntimeException(_t('头像源返回异常状态'));
         }
 
         return (string) $client->getResponseBody();
