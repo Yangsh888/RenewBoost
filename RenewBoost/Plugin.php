@@ -34,6 +34,7 @@ class Plugin implements PluginInterface
         Helper::removeRoute('renew_boost_action');
         Helper::addRoute('renew_boost_action', '/action/renew-boost', Action::class, 'action');
         Helper::removePanel(3, 'RenewBoost/Panel.php');
+        Helper::removePanel(5, 'RenewBoost/Panel.php');
         Helper::addPanel(5, 'RenewBoost/Panel.php', '优化加速', '优化加速', 'administrator', false, '', ['icon' => 'i-zap']);
         return _t('RenewBoost 已启用');
     }
@@ -42,6 +43,7 @@ class Plugin implements PluginInterface
     {
         Helper::removeRoute('renew_boost_action');
         Helper::removePanel(3, 'RenewBoost/Panel.php');
+        Helper::removePanel(5, 'RenewBoost/Panel.php');
         Settings::clear();
         return _t('RenewBoost 已停用');
     }
