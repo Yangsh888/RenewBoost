@@ -462,7 +462,7 @@ class Image
             return false;
         }
 
-        $content = @file_get_contents($path);
+        $content = @file_get_contents($path, false, null, 0, 2097152);
         if (!is_string($content) || $content === '') {
             return false;
         }
